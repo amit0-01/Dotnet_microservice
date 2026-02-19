@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ProductDb
+    ports:
+      - "5432:5432"
+
+  productservice:
+    build: ./ProductService
+    depends_on:
+      - postgres
+    ports:
+      - "5001:8080"
+
+  apigateway:
+    build: ./ApiGateway
+    depends_on:
+      - productservice
+    ports:
+      - "5000:8080"
