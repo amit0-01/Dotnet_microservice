@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zn1wrvv/oJs=",
+  "dgSpecHash": "ju+vnaWJEws=",
   "success": true,
-  "projectFilePath": "D:\\dotnet\\MicroserviceApp\\ProductService\\ProductService.csproj",
+  "projectFilePath": "D:\\dotnet\\MicroserviceApp\\productservice\\ProductService.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amit\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Amit\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

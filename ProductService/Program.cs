@@ -12,7 +12,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// 🔥 PROPER DB RETRY LOGIC
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();

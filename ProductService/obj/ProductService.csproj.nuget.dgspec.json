@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\dotnet\\MicroserviceApp\\ProductService\\ProductService.csproj": {}
+    "D:\\dotnet\\MicroserviceApp\\productservice\\ProductService.csproj": {}
   },
   "projects": {
-    "D:\\dotnet\\MicroserviceApp\\ProductService\\ProductService.csproj": {
+    "D:\\dotnet\\MicroserviceApp\\productservice\\ProductService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\dotnet\\MicroserviceApp\\ProductService\\ProductService.csproj",
+        "projectUniqueName": "D:\\dotnet\\MicroserviceApp\\productservice\\ProductService.csproj",
         "projectName": "ProductService",
-        "projectPath": "D:\\dotnet\\MicroserviceApp\\ProductService\\ProductService.csproj",
+        "projectPath": "D:\\dotnet\\MicroserviceApp\\productservice\\ProductService.csproj",
         "packagesPath": "C:\\Users\\Amit\\.nuget\\packages\\",
-        "outputPath": "D:\\dotnet\\MicroserviceApp\\ProductService\\obj\\",
+        "outputPath": "D:\\dotnet\\MicroserviceApp\\productservice\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
