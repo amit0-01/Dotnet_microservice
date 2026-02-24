@@ -10,9 +10,9 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // JWT Configuration
-var jwtKey = builder.Configuration["Jwt:Key"] ?? "YourSecretKeyHere12345678901234567890";
-var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? "AuthService";
-var jwtAudience = builder.Configuration["Jwt:Audience"] ?? "MicroserviceApp";
+var jwtKey = builder.Configuration["Jwt:Key"] ?? throw new InvalidOperationException("JWT Key not configured");
+var jwtIssuer = builder.Configuration["Jwt:Issuer"] ?? throw new InvalidOperationException("JWT Issuer not configured");
+var jwtAudience = builder.Configuration["Jwt:Audience"] ?? throw new InvalidOperationException("JWT Audience not configured");
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
