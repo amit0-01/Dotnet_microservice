@@ -37,7 +37,6 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AuthDbContext>();
@@ -49,15 +48,12 @@ using (var scope = app.Services.CreateScope())
         {
             Console.WriteLine("Attempting DB migration...");
 
-            // 🔥 Ensure database exists first
-            db.Database.EnsureCreated();
-
             db.Database.Migrate();
 
             Console.WriteLine("Migration successful!");
             break;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             retries--;
             Console.WriteLine($"Database not ready. Retries left: {retries}");

@@ -5,7 +5,6 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: AuthDb
     ports:
       - "5432:5432"
 
@@ -16,9 +15,9 @@ services:
     ports:
       - "5001:8080"
     environment:
-    - Jwt__Key=SuperSecretKey123456789
-    - Jwt__Issuer=AuthService
-    - Jwt__Audience=MicroserviceApp
+      Jwt__Key: SuperSecretKey123456789
+      Jwt__Issuer: AuthService
+      Jwt__Audience: MicroserviceApp
 
   authservice:
     build: ./AuthService
@@ -27,9 +26,9 @@ services:
     ports:
       - "5002:8080"
     environment:
-    - Jwt__Key=SuperSecretKey123456789
-    - Jwt__Issuer=AuthService
-    - Jwt__Audience=MicroserviceApp
+      Jwt__Key: SuperSecretKey123456789
+      Jwt__Issuer: AuthService
+      Jwt__Audience: MicroserviceApp
 
   apigateway:
     build: ./ApiGateway
