@@ -32,6 +32,16 @@ services:
       Jwt__Key: SuperSecretKey123456789
       Jwt__Issuer: AuthService
       Jwt__Audience: MicroserviceApp
+  
+  orderservice:
+    build : ./OrderService
+    depends_on:
+      - postgres
+    ports:
+      - "5003:8080"
+    environment:
+      - ConnectionStrings_DefaultConnection=Host=postgres;Database=OrderDb;Username=postgres;Password=postgres
+      - Jwt_key=SuperSecretKey123456789
 
   apigateway:
     build: ./ApiGateway
