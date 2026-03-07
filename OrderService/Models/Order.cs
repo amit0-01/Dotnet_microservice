@@ -1,13 +1,17 @@
-using System.ComponentModel.DataAnnotation
+using System.ComponentModel.DataAnnotations;
+
 namespace OrderService.Models;
 
-public class Order {
+public class Order
+{
+    [Key]
+    public int Id { get; set; }
 
-    [key]
-    pubic Int Id {get; set;}
-    pubic Int UserId {get; set;}
-    pubic DateTime CreatedAt {get; set;} = DateTime.UtcNow;
-    public string Status {get; set;} = "Pending";
-    pubic List<OrderItem> Items {get; set;}
-    
+    public int UserId { get; set; }
+
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    public string Status { get; set; } = "Pending";
+
+    public List<OrderItem> Items { get; set; } = new();
 }

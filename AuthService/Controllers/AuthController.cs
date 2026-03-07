@@ -50,12 +50,12 @@ public class AuthController : ControllerBase
         if (!BCrypt.Net.BCrypt.Verify(loginRequest.Password, user.PasswordHash))
             return Unauthorized("Invalid username or password");
 
-        var token = GenerateJwtToken(user.Username);
+        var token = GenerateJwtToken(user.Id, user.Username);
         
         return Ok(new { message = "Login successful", username = user.Username, token = token });
     }
 
-    private string GenerateJwtToken(string username)
+    private string GenerateJwtToken(int userId, string username)
     {
         var jwtKey = _configuration["Jwt:Key"] ;
         var jwtIssuer = _configuration["Jwt:Issuer"] ;
@@ -66,9 +66,9 @@ public class AuthController : ControllerBase
 
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, username),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim(ClaimTypes.Name, username)
+            new Claim(ClaimTypes.NameIdentifier, userId.ToString()),
+            new Claim(ClaimTypes.Name, username),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
         var token = new JwtSecurityToken(

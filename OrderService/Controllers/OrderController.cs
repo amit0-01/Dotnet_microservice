@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using OrderServie.Data;
+using OrderService.Data;
 using OrderService.Models;
 using System.Security.Claims;
-using Microsoft.EntityFramework;
+using Microsoft.EntityFrameworkCore;
 
 namespace OrderService.Controllers;
 
 [Route("api/[controller]")]
-[Apicontroller]
+[ApiController]
 [Authorize]
 public class OrderController : ControllerBase
 {
@@ -34,7 +34,7 @@ public class OrderController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetMyOrders()
     {
-        var userId = int.Parse(userId.FindFirstValue(ClaimTypes.NameIdentifier));
+        var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
         var orders = await _context.Orders
             .Include(o => o.Items)
